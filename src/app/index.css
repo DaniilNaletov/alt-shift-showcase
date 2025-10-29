@@ -1,6 +1,20 @@
 @config '../../tailwind.config.ts';
+
+@import './font.css';
 @import 'tailwindcss';
 @import '../altui/index.css';
+
+html {
+  font-family: var(--font-body);
+
+  color-scheme: light;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
 
 html {
   width: 100%;
@@ -15,16 +29,9 @@ body {
   height: 100%;
 }
 
-html {
-  font-family: Rubik, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
-  color-scheme: light;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+h1,
+h2 {
+  font-family: var(--font-display);
 }
 
 input,
