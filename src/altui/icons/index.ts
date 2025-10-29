@@ -1,0 +1,7 @@
+export { ReactComponent as IconHomeSm } from './IconHomeSm.svg'
+export { ReactComponent as IconCopySm } from './IconCopySm.svg'
+export { ReactComponent as IconRetry } from './IconRetry.svg'
+export { ReactComponent as IconPlus } from './IconPlus.svg'
+export { ReactComponent as IconPlusSm } from './IconPlusSm.svg'
+export { ReactComponent as IconTrashSm } from './IconTrashSm.svg'
+export { ReactComponent as IconCircleCheck } from './IconCircleCheck.svg'
