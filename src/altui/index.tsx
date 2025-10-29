@@ -1,7 +1,7 @@
-import { cn } from './helpers/cn'
-
-import { useShakeAnim } from './hooks/useShakeAnim/useShakeAnim'
-import Spinner from './components/Spinner/Spinner'
+import AltLogo from './components/AltLogo/AltLogo'
 import { Button } from './components/Button/Button'
+import Spinner from './components/Spinner/Spinner'
+import { cn } from './helpers/cn'
+import { useShakeAnim } from './hooks/useShakeAnim/useShakeAnim'
 
-export { cn, useShakeAnim, Spinner, Button }
+export { AltLogo, Button, cn, Spinner, useShakeAnim }
