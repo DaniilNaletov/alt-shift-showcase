@@ -1,5 +1,6 @@
 @config '../../tailwind.config.ts';
 @import 'tailwindcss';
+@import '../altui/index.css';
 
 html {
   width: 100%;
@@ -55,15 +56,7 @@ a {
     @apply text-h2;
   }
 
-  h3 {
-    @apply text-h3;
-  }
-
-  h4 {
-    @apply text-h4;
-  }
-
   hr {
-    @apply border-default;
+    @apply border-muted;
   }
 }

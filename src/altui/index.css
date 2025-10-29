@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+
+  /* Palette */
+  --color-gray-1: 220deg 22% 96%;
+  --color-gray-2: 220deg 17% 93%;
+  --color-gray-3: 216deg 16% 84%;
+  --color-gray-4: 218deg 15% 65%;
+  --color-gray-5: 220deg 13% 46%;
+  --color-gray-6: 215deg 18% 34%;
+  --color-gray-7: 217deg 23% 27%;
+  --color-gray-8: 221deg 43% 11%;
+
+  --color-green-1: 140deg 76% 96%;
+  --color-green-2: 141deg 82% 90%;
+  --color-green-3: 146deg 66% 67%;
+  --color-green-4: 152deg 82% 39%;
+  --color-green-5: 153deg 87% 24%;
+
+  --color-red-1: 4deg 95% 94%;
+  --color-red-2: 4deg 96% 80%;
+  --color-red-3: 4deg 86% 58%;
+
+  --color-black: 0deg 0% 0%;
+  --color-white: 0deg 0% 100%;
+
+  --color-text-default: var(--color-gray-8);
+}
