@@ -20,7 +20,7 @@ const config: Config = {
         h1: ['3rem', { lineHeight: '3.75rem', fontWeight: 600 }],
         h2: ['2.25rem', { lineHeight: '2.75rem', fontWeight: 600 }],
         base: ['1.125rem', '1.75rem'],
-        sm: ['1rem', '1.563rem'],
+        sm: ['1rem', '1.5rem'],
         xs: ['0.875rem', '1.25rem'],
       },
 
@@ -91,6 +91,11 @@ const config: Config = {
           primary: 'hsl(var(--color-green-1) / <alpha-value>)',
           gray: 'hsl(var(--color-gray-1) / <alpha-value>)',
         },
+      },
+
+      boxShadow: {
+        btn: '0px 1px 2px 0px hsla(220, 43%, 11%, 0.05)',
+        btn2: '0px 2px 3px 0px hsla(220, 43%, 11%, 0.10)',
       },
     },
   },
