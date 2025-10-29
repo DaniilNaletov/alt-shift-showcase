@@ -1,0 +1,21 @@
+@keyframes loader {
+  0% {
+    width: var(--ss-width);
+  }
+  20% {
+    width: calc(var(--ss-width) * 0.4);
+  }
+  40% {
+    width: calc(var(--ss-width) * 1.2);
+  }
+  55% {
+    width: var(--ss-width);
+  }
+  100% {
+    width: var(--ss-width);
+  }
+}
+
+.segment {
+  animation: loader 1.5s infinite ease-in-out;
+}
