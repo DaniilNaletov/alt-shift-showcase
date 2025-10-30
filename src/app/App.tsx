@@ -1,15 +1,18 @@
 import './index.css'
 
-import HomePage from '@/pages/home/HomePage'
-import TestUIPage from '@/pages/test-ui/TestUIPage'
+import { QueryClientProvider } from '@tanstack/react-query'
 
-import AppLayout from './AppLayout'
+import { QueryService } from '@/services/query'
+
+import Root from './Root'
+
+QueryService.init()
 
 const App: React.FC = () => {
   return (
-    <AppLayout>
-      <HomePage />
-    </AppLayout>
+    <QueryClientProvider client={QueryService.getClient()}>
+      <Root />
+    </QueryClientProvider>
   )
 }
 
