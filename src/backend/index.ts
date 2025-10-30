@@ -1,3 +1,4 @@
+// Мы используем модель из фронтового модуля в целях упрощения, в реальности модели бека полностью отделены
 import { CoverLetter } from '@/modules/coverLetter/model'
 
 import LocalDB from './localDB'
