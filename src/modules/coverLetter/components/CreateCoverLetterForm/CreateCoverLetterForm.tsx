@@ -88,14 +88,14 @@ const CreateCoverLetterForm: React.FC<{
           shakeOnError
         />
       </div>
-      <div>
+      <div className="flex grow flex-col">
         <label className="input-label" htmlFor="details">
           Additional details
         </label>
         <TextArea
           id="details"
           placeholder="Describe why you are a great fit or paste your bio"
-          className="min-h-[200px]"
+          className="min-h-[200px] grow"
           {...register('details')}
           isError={isDetailsError || !!errors.details}
           shakeOnError

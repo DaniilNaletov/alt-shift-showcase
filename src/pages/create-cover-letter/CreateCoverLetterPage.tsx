@@ -11,8 +11,8 @@ const CreateCoverLetterPage: React.FC = () => {
     console.log('Creating cover letter with data:', data)
   }
   return (
-    <div>
-      <div className="grid grid-cols-2 gap-8">
+    <div className="flex grow flex-col">
+      <div className="grid grow grid-cols-2 gap-8">
         <CreateCoverLetterForm onCreate={handleCreate} modeTryAgain />
         <div>
           <div className="bg-surface-secondary h-full w-full rounded-xl p-6">
