@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 
+import CreateCoverLetterPage from '@/pages/create-cover-letter/CreateCoverLetterPage'
 import HomePage from '@/pages/home/HomePage'
 import TestUIPage from '@/pages/test-ui/TestUIPage'
 
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/create',
-        element: <div>Create Page</div>,
+        element: <CreateCoverLetterPage />,
       },
     ],
   },

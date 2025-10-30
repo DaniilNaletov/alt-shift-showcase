@@ -1,5 +1,6 @@
 import { AltLogo, Button } from '@altui'
 import { IconHomeSm } from '@altui/icons'
+import { Link } from 'react-router-dom'
 
 import ProgressWidget from '@/modules/coverLetter/components/ProgressWidget/ProgressWidget'
 
@@ -8,14 +9,18 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <div className="bg-surface-base min-h-screen w-full px-2">
       <div className="mx-auto max-w-[1120px] pt-8 pb-[120px]">
         <header className="mb-8 flex min-h-12 flex-row items-center">
-          <AltLogo />
+          <Link to="/" className="cursor-pointer">
+            <AltLogo />
+          </Link>
 
           <div className="grow" />
 
           <ProgressWidget className="mr-6" />
 
-          <Button variant="outlined" size="small" isIconOnly>
-            <IconHomeSm />
+          <Button variant="outlined" size="small" isIconOnly asChild>
+            <Link to="/">
+              <IconHomeSm />
+            </Link>
           </Button>
         </header>
 
