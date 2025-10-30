@@ -1,4 +1,4 @@
-import { AltLogo, Button, Input } from '@altui'
+import { AltLogo, Button, Input, TextArea } from '@altui'
 import { IconCopySm, IconHomeSm } from '@altui/icons'
 import * as Icons from '@altui/icons'
 
@@ -10,7 +10,7 @@ const TestUIPage: React.FC = () => {
       <div className="bg-surface-base mx-auto max-w-3xl rounded-2xl p-4">
         <div className="mb-4 flex flex-row items-center justify-between">
           <AltLogo />
-          <h2>Test UI</h2>
+          <h1 className="text-h2">AltUI</h1>
         </div>
 
         <hr />
@@ -153,7 +153,7 @@ const TestUIPage: React.FC = () => {
           <section>
             <h3 className="text-label mb-2 font-semibold">Input</h3>
 
-            <div className="space-y-4">
+            <div className="mb-4 space-y-4">
               <Input placeholder="Enter text..." />
               <Input placeholder="Enter text..." isDisabled />
               <Input placeholder="Enter text..." value="Something" isError />
@@ -163,6 +163,16 @@ const TestUIPage: React.FC = () => {
                 errorMessage="Something went wrong"
                 isError
               />
+            </div>
+          </section>
+
+          <hr />
+
+          <section>
+            <h3 className="text-label mb-2 font-semibold">Text Area</h3>
+
+            <div>
+              <TextArea placeholder="Enter multi-line text..." className="min-h-[120px]" />
             </div>
           </section>
         </div>
