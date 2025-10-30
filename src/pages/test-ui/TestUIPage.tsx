@@ -1,4 +1,4 @@
-import { AltLogo, Button } from '@altui'
+import { AltLogo, Button, Input } from '@altui'
 import { IconCopySm, IconHomeSm } from '@altui/icons'
 import * as Icons from '@altui/icons'
 
@@ -145,6 +145,24 @@ const TestUIPage: React.FC = () => {
                   <IconCopySm />
                 </Button>
               </div>
+            </div>
+          </section>
+
+          <hr />
+
+          <section>
+            <h3 className="text-label mb-2 font-semibold">Input</h3>
+
+            <div className="space-y-4">
+              <Input placeholder="Enter text..." />
+              <Input placeholder="Enter text..." isDisabled />
+              <Input placeholder="Enter text..." value="Something" isError />
+              <Input
+                placeholder="Enter text..."
+                value="Something"
+                errorMessage="Something went wrong"
+                isError
+              />
             </div>
           </section>
         </div>
