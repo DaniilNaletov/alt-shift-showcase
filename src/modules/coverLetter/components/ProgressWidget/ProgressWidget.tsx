@@ -37,7 +37,7 @@ const ProgressWidget: React.FC<{ className?: string }> = ({ className }) => {
           {Array.from({ length: COVER_LETTERS_GOAL }).map((_, index) => (
             <span
               key={index}
-              className={cx('h-2 w-2 rounded-full', {
+              className={cx('h-2 w-2 rounded-full transition-colors', {
                 'bg-gray-8': index < progress,
                 'bg-gray-8/25': index >= progress,
               })}

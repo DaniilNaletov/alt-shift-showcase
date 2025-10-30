@@ -40,8 +40,8 @@ const GoalBanner: React.FC<{ className?: string }> = ({ className }) => {
               {Array.from({ length: COVER_LETTERS_GOAL }).map((_, index) => (
                 <div
                   key={index}
-                  className={cx('bg-gray-8 h-2 w-8 rounded-full', {
-                    'opacity-25': index + 1 > progress,
+                  className={cx('bg-gray-8 h-2 w-8 rounded-full transition-colors', {
+                    'bg-gray-8/25': index + 1 > progress,
                   })}
                 />
               ))}
