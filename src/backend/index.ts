@@ -11,6 +11,12 @@ interface CoverLetterData {
   details: string
 }
 
+const emulateNetworkDelay = () => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 1000)
+  })
+}
+
 const generateMessage = (data: CoverLetterData) => {
   return `Dear ${data.company} Team,
 
@@ -43,10 +49,7 @@ const buildCoverLetter = (data: CoverLetterData) => {
 }
 
 const createCoverLetter = async (data: CoverLetterData) => {
-  // Симуляция задержки сети
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000)
-  })
+  await emulateNetworkDelay()
 
   const coverLetter = buildCoverLetter(data)
 
@@ -56,17 +59,25 @@ const createCoverLetter = async (data: CoverLetterData) => {
 }
 
 const getCoverLetter = async (id: string) => {
+  await emulateNetworkDelay()
+
   return LocalDB.getCoverLetter(id)
 }
 
 const getAllCoverLetters = async () => {
+  await emulateNetworkDelay()
+
   return LocalDB.getAllCoverLetters()
 }
 
 const deleteCoverLetter = async (id: string) => {
+  await emulateNetworkDelay()
+
   return LocalDB.deleteCoverLetter(id)
 }
 const deleteAllCoverLetters = async () => {
+  await emulateNetworkDelay()
+
   return LocalDB.deleteAllCoverLetters()
 }
 
