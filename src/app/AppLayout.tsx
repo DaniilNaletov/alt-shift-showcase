@@ -10,7 +10,7 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
           <div className="grow" />
 
-          <Button variant="outlined" isIconOnly>
+          <Button variant="outlined" size="small" isIconOnly>
             <IconHomeSm />
           </Button>
         </header>
