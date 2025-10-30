@@ -6,15 +6,13 @@ import Backend from '@/backend'
 // но в реальном приложении в обязательном порядке необходимо отдельять бэковские модели и пропускать их
 // через слой адаптеров, превращая в модели приложения, во избежании "хрупкого" фронтенда.
 
-interface CoverLetterData {
+export const createCoverLetter = async (data: {
   title: string
   jobTitle: string
   company: string
   imGoodAt: string
   details: string
-}
-
-export const createCoverLetter = async (data: CoverLetterData) => {
+}) => {
   return Backend.createCoverLetter(data)
 }
 
