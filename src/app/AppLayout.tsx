@@ -1,6 +1,8 @@
 import { AltLogo, Button } from '@altui'
 import { IconHomeSm } from '@altui/icons'
 
+import ProgressWidget from '@/modules/coverLetter/components/ProgressWidget/ProgressWidget'
+
 const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="bg-surface-base min-h-screen w-full px-2">
@@ -9,6 +11,8 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <AltLogo />
 
           <div className="grow" />
+
+          <ProgressWidget className="mr-6" />
 
           <Button variant="outlined" size="small" isIconOnly>
             <IconHomeSm />
