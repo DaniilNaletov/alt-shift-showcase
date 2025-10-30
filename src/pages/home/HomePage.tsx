@@ -1,6 +1,7 @@
 import { Button } from '@altui'
 import { IconPlusSm } from '@altui/icons'
 
+import CoverLettersWidget from '@/modules/coverLetter/components/CoverLettersWidget/CoverLettersWidget'
 import GoalBanner from '@/modules/coverLetter/components/GoalBanner/GoalBanner'
 import IfBannerNeeded from '@/modules/coverLetter/components/IfBannerNeeded/IfBannerNeeded'
 
@@ -15,6 +16,8 @@ const HomePage: React.FC = () => {
         </Button>
       </div>
       <hr />
+
+      <CoverLettersWidget className="mt-6" />
 
       <IfBannerNeeded>
         <GoalBanner className="mt-12" />
