@@ -74,7 +74,7 @@ const buttonVariants = cva(
       {
         variant: ['ghost'],
         isDisabled: true,
-        className: 'text-gray-4',
+        className: '!text-gray-4',
       },
 
       /* ======== Icon Only ======== */
