@@ -1,5 +1,6 @@
 /* eslint-disable react/no-children-prop */
 /* eslint-disable react/button-has-type */
+import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 import React from 'react'
 
@@ -123,8 +124,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
+    const Comp = asChild ? Slot : 'button'
     return (
-      <button
+      <Comp
         ref={ref}
         className={cn(
           buttonVariants({
