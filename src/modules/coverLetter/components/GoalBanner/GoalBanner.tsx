@@ -4,11 +4,11 @@ import cx from 'clsx'
 
 import useCoverLetterActions from '@/modules/coverLetter/hooks/useCoverLetterActions'
 import useCoverLetters from '@/modules/coverLetter/hooks/useCoverLetters'
+import { COVER_LETTERS_GOAL } from '@/modules/coverLetter/model'
 
 const GoalBanner: React.FC<{ className?: string }> = ({ className }) => {
   const { data: coverLetters, isPending, isError } = useCoverLetters()
-  const total = 5
-  const progress = Math.min(coverLetters?.length ?? 0, total)
+  const progress = Math.min(coverLetters?.length ?? 0, COVER_LETTERS_GOAL)
 
   const { createCoverLetterMutation } = useCoverLetterActions()
 
@@ -37,7 +37,7 @@ const GoalBanner: React.FC<{ className?: string }> = ({ className }) => {
         {!isPending && !isError ? (
           <div className="mt-8">
             <div className="flex flex-row gap-1">
-              {Array.from({ length: total }).map((_, index) => (
+              {Array.from({ length: COVER_LETTERS_GOAL }).map((_, index) => (
                 <div
                   key={index}
                   className={cx('bg-gray-8 h-2 w-8 rounded-full', {
@@ -47,7 +47,7 @@ const GoalBanner: React.FC<{ className?: string }> = ({ className }) => {
               ))}
             </div>
             <p className="text-secondary mt-2">
-              {progress} out of {total}
+              {progress} out of {COVER_LETTERS_GOAL}
             </p>
           </div>
         ) : null}

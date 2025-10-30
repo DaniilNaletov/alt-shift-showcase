@@ -2,6 +2,7 @@ import { Button } from '@altui'
 import { IconPlusSm } from '@altui/icons'
 
 import GoalBanner from '@/modules/coverLetter/components/GoalBanner/GoalBanner'
+import IfBannerNeeded from '@/modules/coverLetter/components/IfBannerNeeded/IfBannerNeeded'
 
 const HomePage: React.FC = () => {
   return (
@@ -15,7 +16,9 @@ const HomePage: React.FC = () => {
       </div>
       <hr />
 
-      <GoalBanner className="mt-12" />
+      <IfBannerNeeded>
+        <GoalBanner className="mt-12" />
+      </IfBannerNeeded>
     </div>
   )
 }
