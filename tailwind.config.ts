@@ -86,10 +86,9 @@ const config: Config = {
         },
 
         surface: {
-          base: 'var(--color-white)',
-
+          base: 'hsl(var(--color-white) / <alpha-value>)',
           primary: 'hsl(var(--color-green-1) / <alpha-value>)',
-          gray: 'hsl(var(--color-gray-1) / <alpha-value>)',
+          secondary: 'hsl(var(--color-gray-1) / <alpha-value>)',
         },
       },
 

@@ -1,8 +1,10 @@
+/* eslint-disable react/no-children-prop */
+/* eslint-disable react/button-has-type */
 import { cva, type VariantProps } from 'class-variance-authority'
 import React from 'react'
 
-import Spinner from '../Spinner/Spinner'
 import { cn } from '../../helpers/cn'
+import Spinner from '../Spinner/Spinner'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap transition-all duration-200 font-semibold align-middle',
@@ -17,7 +19,7 @@ const buttonVariants = cva(
         false: '',
       },
       isDisabled: {
-        true: '',
+        true: 'cursor-not-allowed',
         false: '',
       },
       variant: {
@@ -136,7 +138,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         disabled={(isDisabled || isLoading) ?? undefined}
         {...props}
-        // eslint-disable-next-line react/no-children-prop
         children={isLoading ? <Spinner sm /> : props.children}
       />
     )
