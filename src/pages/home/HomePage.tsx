@@ -1,6 +1,8 @@
 import { Button } from '@altui'
 import { IconPlusSm } from '@altui/icons'
 
+import GoalBanner from '@/modules/coverLetter/components/GoalBanner/GoalBanner'
+
 const HomePage: React.FC = () => {
   return (
     <div>
@@ -12,6 +14,8 @@ const HomePage: React.FC = () => {
         </Button>
       </div>
       <hr />
+
+      <GoalBanner className="mt-12" />
     </div>
   )
 }
