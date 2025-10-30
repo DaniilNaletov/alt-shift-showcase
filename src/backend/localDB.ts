@@ -1,19 +1,8 @@
+import { CoverLetter } from '@/modules/coverLetter/model'
+
 const DB_NAME = 'alt-shift-db'
 const DB_VERSION = 1
 const STORE_NAME = 'coverLetters'
-
-export interface CoverLetter {
-  id: string
-  createdAt: string
-
-  title: string
-  jobTitle: string
-  company: string
-  imGoodAt: string
-  details: string
-
-  message: string
-}
 
 let dbPromise: Promise<IDBDatabase> | null = null
 

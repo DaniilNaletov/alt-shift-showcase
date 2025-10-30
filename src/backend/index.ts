@@ -1,3 +1,5 @@
+import { CoverLetter } from '@/modules/coverLetter/model'
+
 import LocalDB from './localDB'
 
 interface CoverLetterData {
@@ -25,7 +27,7 @@ Thank you for considering my application. I eagerly await the opportunity to dis
 const buildCoverLetter = (data: CoverLetterData) => {
   const message = generateMessage(data)
 
-  return {
+  const coverLetter: CoverLetter = {
     id: crypto.randomUUID(),
     createdAt: new Date().toISOString(),
     title: data.title,
@@ -35,6 +37,8 @@ const buildCoverLetter = (data: CoverLetterData) => {
     details: data.details,
     message,
   }
+
+  return coverLetter
 }
 
 const createCoverLetter = async (data: CoverLetterData) => {
