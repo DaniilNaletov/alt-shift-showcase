@@ -60,7 +60,7 @@ const TestUIPage: React.FC = () => {
               <p className="text-secondary">Secondary text</p>
               <p className="text-sm">Small text</p>
               <p className="text-xs">Extra small text</p>
-              <label className="text-label text-xs font-semibold">Input label</label>
+              <label className="input-label">Input label</label>
             </div>
           </section>
 

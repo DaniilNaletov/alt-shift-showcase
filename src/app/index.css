@@ -66,4 +66,8 @@ a {
   hr {
     @apply border-muted;
   }
+
+  .input-label {
+    @apply text-label mb-1.5 block text-xs font-medium;
+  }
 }
