@@ -43,6 +43,11 @@ const buildCoverLetter = (data: CoverLetterData) => {
 }
 
 const createCoverLetter = async (data: CoverLetterData) => {
+  // Симуляция задержки сети
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000)
+  })
+
   const coverLetter = buildCoverLetter(data)
 
   await LocalDB.createCoverLetter(coverLetter).then(() => coverLetter)
