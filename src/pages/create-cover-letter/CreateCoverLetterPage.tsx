@@ -34,7 +34,7 @@ const CreateCoverLetterPage: React.FC = () => {
   return (
     <IfScreen
       desktop={
-        <div className="-mx-4 grid grow grid-cols-2 gap-8 overflow-auto px-4">
+        <div className="-mx-2 grid grow grid-cols-2 gap-8 overflow-auto px-2">
           <CreateCoverLetterForm onCreate={handleCreate} modeTryAgain={Boolean(coverLetter)} />
           <CoverLetterPreview
             message={coverLetter?.message}
@@ -43,7 +43,7 @@ const CreateCoverLetterPage: React.FC = () => {
         </div>
       }
       mobile={
-        <div className="-mx-4 flex grow flex-col overflow-auto px-4">
+        <div className="-mx-2 flex grow flex-col overflow-auto px-2">
           <CreateCoverLetterForm
             className={cx('grow', { hidden: step === 'preview' })}
             onCreate={handleCreate}
