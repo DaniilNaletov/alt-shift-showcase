@@ -4,9 +4,17 @@ const path = require('path')
 const fs = require('fs')
 const crypto = require('crypto')
 
+require('dotenv').config()
+
+const BASE_URL = process.env.VITE_API_BASE_URL
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+
 const app = express()
-const serverUrl = process.env.VITE_API_BASE_URL
-const wsUrl = process.env.VITE_API_BASE_URL.replace('https', 'wss').replace('http', 'ws')
+const serverUrl = BASE_URL
+const wsUrl = BASE_URL.replace('https', 'wss').replace('http', 'ws')
+
+const OpenAI = require('openai')
+const openai = new OpenAI({ apiKey: OPENAI_API_KEY })
 
 app.use((req, res, next) => {
   // Generate a random nonce value
@@ -92,8 +100,63 @@ app.use(
 
 app.use(express.static('build', { index: false }))
 
-app.get('/echo', (req, res) => {
+app.get('/api/echo', (req, res) => {
   res.json({ message: 'Hello from the server!' })
+})
+
+app.get('/api/generate-cover-letter', async (req, res) => {
+  const jobTitle = req.query.jobTitle
+  const company = req.query.company
+  const imGoodAt = req.query.imGoodAt
+  const details = req.query.details
+
+  if (!jobTitle || !company || !imGoodAt) {
+    res.status(400).json({ error: 'missing_parameters' })
+    return
+  }
+
+  // await new Promise((resolve) => setTimeout(resolve, 1000))
+  // res.status(500).json({ error: 'cover_letter_generation_failed' })
+  // return
+
+  const getPrompt = () => {
+    return `Generate a short cover letter for user. The purpose of the cover letter is to send apply in LinkedIn. There are known data about user:
+- Interested in position: ${jobTitle}
+- Company: ${company}
+- Skills: ${imGoodAt}
+- Additional Details: ${details}
+
+Make the cover letter professional.
+The cover letter should be ready to send "as is" without requiring any further edits, should not contain any placeholders.
+Respond ONLY with JSON: {"coverLetter": "..."}`
+  }
+
+  try {
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-5-mini',
+      response_format: { type: 'json_object' },
+      messages: [
+        { role: 'system', content: 'You generate professional cover letter for users.' },
+        {
+          role: 'user',
+          content: getPrompt(),
+        },
+      ],
+    })
+
+    const raw = completion.choices?.[0]?.message?.content ?? '{}'
+    const parsed = JSON.parse(raw)
+
+    if (!parsed.coverLetter || typeof parsed.coverLetter !== 'string') {
+      throw new Error('Model did not return { coverLetter: string }')
+    }
+
+    res.set('Cache-Control', 'no-store')
+    res.json({ coverLetter: parsed.coverLetter })
+  } catch (err) {
+    console.error('Failed to generate cover letter:', err)
+    res.status(500).json({ error: 'cover_letter_generation_failed' })
+  }
 })
 
 app.post('/csp-violation-report-endpoint', express.json(), (req, res) => {
@@ -117,7 +180,7 @@ app.get('*', async (req, res) => {
   res.send(html)
 })
 
-const PORT = process.env.SERVER_PORT ?? 3099
+const PORT = process.env.SERVER_PORT ?? 4015
 
 app.listen(PORT, () => {
   console.log('Serving at', PORT)
