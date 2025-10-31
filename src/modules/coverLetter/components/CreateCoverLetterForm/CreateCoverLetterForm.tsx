@@ -95,7 +95,7 @@ const CreateCoverLetterForm: React.FC<{
         <TextArea
           id="details"
           placeholder="Describe why you are a great fit or paste your bio"
-          className="min-h-[200px] grow"
+          className="min-h-[80px] grow"
           {...register('details')}
           isError={isDetailsError || !!errors.details}
           shakeOnError
@@ -107,6 +107,7 @@ const CreateCoverLetterForm: React.FC<{
 
       {modeTryAgain ? (
         <Button
+          key="try-again-button"
           variant="outlined"
           type="submit"
           size="large"
@@ -118,6 +119,7 @@ const CreateCoverLetterForm: React.FC<{
         </Button>
       ) : (
         <Button
+          key="generate-button"
           variant="solid"
           type="submit"
           size="large"
