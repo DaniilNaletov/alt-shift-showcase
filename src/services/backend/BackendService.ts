@@ -1,4 +1,5 @@
-// Мы используем модель из фронтового модуля в целях упрощения, в реальности модели бека полностью отделены
+// Мы нарушаем правило и импортируем модель из фронтового модуля в целях упрощения,
+// в реальности модели бека полностью отделены
 import { CoverLetter } from '@/modules/coverLetter/model'
 
 import LocalDB from './localDB'
@@ -81,11 +82,11 @@ const deleteAllCoverLetters = async () => {
   return LocalDB.deleteAllCoverLetters()
 }
 
-const Backend = {
+const BackendService = {
   createCoverLetter,
   getCoverLetter,
   getAllCoverLetters,
   deleteCoverLetter,
   deleteAllCoverLetters,
 }
-export default Backend
+export default BackendService

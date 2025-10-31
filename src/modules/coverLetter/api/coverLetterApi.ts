@@ -1,4 +1,4 @@
-import Backend from '@/backend'
+import { BackendService } from '@/services/backend'
 
 // Мы используем внутренний "backend" здесь, в реальном приложении здесь были бы вызовы API, типа:
 // await ApiService.userInstance.get<CoverLetterResponse>(`/coverLetter/${id}`);
@@ -13,21 +13,21 @@ export const createCoverLetter = async (data: {
   imGoodAt: string
   details: string
 }) => {
-  return Backend.createCoverLetter(data)
+  return BackendService.createCoverLetter(data)
 }
 
 export const getCoverLetter = async (id: string) => {
-  return Backend.getCoverLetter(id)
+  return BackendService.getCoverLetter(id)
 }
 
 export const getAllCoverLetters = async () => {
-  return Backend.getAllCoverLetters()
+  return BackendService.getAllCoverLetters()
 }
 
 export const deleteCoverLetter = async (id: string) => {
-  return Backend.deleteCoverLetter(id)
+  return BackendService.deleteCoverLetter(id)
 }
 
 export const deleteAllCoverLetters = async () => {
-  return Backend.deleteAllCoverLetters()
+  return BackendService.deleteAllCoverLetters()
 }
