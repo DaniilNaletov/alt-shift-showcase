@@ -1,4 +1,4 @@
-import { AltLogo, Button } from '@altui'
+import { AltLogo, Button, IfScreen } from '@altui'
 import { IconHomeSm } from '@altui/icons'
 import cx from 'clsx'
 import { Link, useMatches } from 'react-router-dom'
@@ -19,7 +19,7 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       >
         <header className="mb-8 flex min-h-12 flex-row items-center">
           <Link to="/" className="cursor-pointer">
-            <AltLogo />
+            <IfScreen desktop={<AltLogo />} mobile={<AltLogo minimal />} />
           </Link>
 
           <div className="grow" />

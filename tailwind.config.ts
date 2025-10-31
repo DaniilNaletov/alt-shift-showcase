@@ -19,6 +19,8 @@ const config: Config = {
       fontSize: {
         h1: ['3rem', { lineHeight: '3.75rem', fontWeight: 600 }],
         h2: ['2.25rem', { lineHeight: '2.75rem', fontWeight: 600 }],
+        'h1-mob': ['1.875rem', { lineHeight: '2.25rem', fontWeight: 600 }],
+        'h2-mob': ['1.5rem', { lineHeight: '2rem', fontWeight: 600 }],
         base: ['1.125rem', '1.75rem'],
         sm: ['1rem', '1.5rem'],
         xs: ['0.875rem', '1.25rem'],
