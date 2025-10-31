@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import svgr from 'vite-plugin-svgr'
 import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'node:path'
 
 export default defineConfig({
   plugins: [
@@ -33,17 +34,15 @@ export default defineConfig({
   },
 
   build: {
-    outDir: 'build',
+    outDir: 'server/build',
     target: 'esnext',
     minify: 'esbuild',
+    sourcemap: true,
 
     rollupOptions: {
-      // external: '@assets/*',
-      plugins: [
-        // TODO: Add polyfills?
-      ],
+      input: {
+        main: resolve(__dirname, 'index.html'),
+      },
     },
-
-    sourcemap: true,
   },
 })

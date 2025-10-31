@@ -3,10 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "start": "tsc && vite --host --mode dev",
-    "build:staging": "tsc && vite build --mode staging",
-    "build:production": "tsc && vite build --mode production",
+    "build:staging": "tsc && vite build --mode staging --config ./vite.config.ts",
+    "build:production": "tsc && vite build --mode production --config ./vite.config.ts",
     "lint": "eslint \"{src,apps,libs,test}/**/*.{ts, tsx}\" --fix",
     "preview": "vite build --mode staging && vite preview"
   },
@@ -51,5 +54,8 @@
     "vite": "^7.0.6",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
   }
 }

@@ -92,6 +92,10 @@ app.use(
 
 app.use(express.static('build', { index: false }))
 
+app.get('/echo', (req, res) => {
+  res.json({ message: 'Hello from the server!' })
+})
+
 app.post('/csp-violation-report-endpoint', express.json(), (req, res) => {
   console.log('CSP Violation: ', req.body)
   res.status(204).end()
