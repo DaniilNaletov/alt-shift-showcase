@@ -1,3 +1,4 @@
+import { notify } from '@altui'
 import { useMutation } from '@tanstack/react-query'
 
 import * as coverLetterActions from '@/modules/coverLetter/actions'
@@ -14,7 +15,7 @@ const useCoverLetterActions = () => {
       return coverLetterActions.createCoverLetter(data)
     },
     onError: (error) => {
-      // Здесь должен показываться toast с ошибкой
+      notify({ message: 'Failed to create cover letter.', variant: 'error' })
     },
   })
 
@@ -23,7 +24,7 @@ const useCoverLetterActions = () => {
       return coverLetterActions.deleteCoverLetter(id)
     },
     onError: (error) => {
-      // Здесь должен показываться toast с ошибкой
+      notify({ message: 'Failed to delete cover letter.', variant: 'error' })
     },
   })
 

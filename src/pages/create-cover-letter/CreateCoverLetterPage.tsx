@@ -28,8 +28,10 @@ const CreateCoverLetterPage: React.FC = () => {
   useEffect(() => {
     if (createCoverLetterMutation.isPending) {
       setStep('preview')
+    } else if (createCoverLetterMutation.isError) {
+      setStep('form')
     }
-  }, [createCoverLetterMutation.isPending])
+  }, [createCoverLetterMutation.isPending, createCoverLetterMutation.isError])
 
   return (
     <IfScreen
