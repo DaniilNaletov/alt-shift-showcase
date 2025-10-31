@@ -1,26 +1,14 @@
 import { Button } from '@altui'
 import { IconPlus } from '@altui/icons'
 import cx from 'clsx'
+import { Link } from 'react-router-dom'
 
-import useCoverLetterActions from '@/modules/coverLetter/hooks/useCoverLetterActions'
 import useCoverLetters from '@/modules/coverLetter/hooks/useCoverLetters'
 import { COVER_LETTERS_GOAL } from '@/modules/coverLetter/model'
 
 const GoalBanner: React.FC<{ className?: string }> = ({ className }) => {
   const { data: coverLetters, isPending, isError } = useCoverLetters()
   const progress = Math.min(coverLetters?.length ?? 0, COVER_LETTERS_GOAL)
-
-  const { createCoverLetterMutation } = useCoverLetterActions()
-
-  const handleCreateNew = async () => {
-    await createCoverLetterMutation.mutateAsync({
-      title: 'New Cover Letter',
-      jobTitle: 'Software Engineer',
-      company: 'AltShift',
-      imGoodAt: 'Node.js, React, TypeScript',
-      details: 'Idk, just make it good',
-    })
-  }
 
   return (
     <div className={cx('bg-surface-primary rounded-xl px-2 py-[54px]', className)}>
@@ -29,9 +17,11 @@ const GoalBanner: React.FC<{ className?: string }> = ({ className }) => {
         <p className="text-secondary mb-4">
           Generate and send out couple more job applications today to get hired faster
         </p>
-        <Button variant="solid" size="large" onClick={handleCreateNew}>
-          <IconPlus />
-          Create New
+        <Button variant="solid" size="large" asChild>
+          <Link to="/create">
+            <IconPlus />
+            Create New
+          </Link>
         </Button>
 
         {!isPending && !isError ? (
