@@ -1,10 +1,10 @@
 import { Button } from '@altui'
-import { IconCopySm, IconTrashSm } from '@altui/icons'
+import { IconCircleCheck, IconCopySm, IconTrashSm } from '@altui/icons'
 import cx from 'clsx'
 
 import useCoverLetterActions from '@/modules/coverLetter/hooks/useCoverLetterActions'
 import { CoverLetter } from '@/modules/coverLetter/model'
-import copyToClipboard from '@/shared/helpers/copyToClipboard'
+import useCopy from '@/shared/hooks/useCopy'
 
 const CoverLetterItem: React.FC<{ coverLetter: CoverLetter; className?: string }> = ({
   coverLetter,
@@ -16,8 +16,9 @@ const CoverLetterItem: React.FC<{ coverLetter: CoverLetter; className?: string }
     await deleteCoverLetterMutation.mutateAsync(coverLetter.id)
   }
 
+  const { isCopied, copy } = useCopy()
   const handleCopy = async () => {
-    copyToClipboard(coverLetter.message)
+    copy(coverLetter.message)
   }
 
   return (
@@ -38,7 +39,7 @@ const CoverLetterItem: React.FC<{ coverLetter: CoverLetter; className?: string }
         </Button>
         <Button variant="ghost" className="hover:text-primary" onClick={handleCopy}>
           Copy to clipboard
-          <IconCopySm />
+          {isCopied ? <IconCircleCheck className="copy-icon-animation h-5 w-5" /> : <IconCopySm />}
         </Button>
       </div>
 

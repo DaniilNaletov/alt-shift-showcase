@@ -71,3 +71,22 @@ a {
     @apply text-label mb-1.5 block text-xs font-medium;
   }
 }
+
+@keyframes copy-icon-animation {
+  0% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.copy-icon-animation {
+  animation: copy-icon-animation 0.35s ease-in-out;
+}

@@ -13,11 +13,17 @@ const useCoverLetterActions = () => {
     }) => {
       return coverLetterActions.createCoverLetter(data)
     },
+    onError: (error) => {
+      // Здесь должен показываться toast с ошибкой
+    },
   })
 
   const deleteCoverLetterMutation = useMutation({
     mutationFn: async (id: string) => {
       return coverLetterActions.deleteCoverLetter(id)
+    },
+    onError: (error) => {
+      // Здесь должен показываться toast с ошибкой
     },
   })
 

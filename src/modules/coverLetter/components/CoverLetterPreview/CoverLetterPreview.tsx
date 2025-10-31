@@ -1,8 +1,8 @@
 import { Button } from '@altui'
-import { IconCopySm } from '@altui/icons'
+import { IconCircleCheck, IconCopySm } from '@altui/icons'
 import cx from 'clsx'
 
-import copyToClipboard from '@/shared/helpers/copyToClipboard'
+import useCopy from '@/shared/hooks/useCopy'
 
 import BallLoader from '../BallLoader/BallLoader'
 
@@ -13,12 +13,9 @@ const CoverLetterPreview: React.FC<{
 }> = ({ message, isLoading, className }) => {
   const placeholder = 'Your personalized job application will appear here...'
 
+  const { isCopied, copy } = useCopy()
   const handleCopy = async () => {
-    if (!message) {
-      return
-    }
-
-    await copyToClipboard(message)
+    copy(message)
   }
 
   return (
@@ -52,7 +49,11 @@ const CoverLetterPreview: React.FC<{
               onClick={handleCopy}
             >
               Copy to clipboard
-              <IconCopySm />
+              {isCopied ? (
+                <IconCircleCheck className="copy-icon-animation h-5 w-5" />
+              ) : (
+                <IconCopySm />
+              )}
             </Button>
           </div>
           <div className="from-surface-secondary to-surface-secondary/0 absolute right-0 bottom-16 left-0 h-10 bg-gradient-to-t" />
