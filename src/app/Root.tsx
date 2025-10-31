@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/create',
         element: <CreateCoverLetterPage />,
-        // handle: { noScroll: true },
+        handle: { noScroll: true },
       },
     ],
   },

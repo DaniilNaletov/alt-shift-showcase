@@ -11,11 +11,14 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const noScroll = (current?.handle as { noScroll?: boolean })?.noScroll
 
   return (
-    <div className="bg-surface-base flex min-h-screen w-full px-2">
+    <div className="bg-surface-base flex min-h-screen w-full">
       <div
-        className={cx('mx-auto flex w-full max-w-[1120px] flex-col pt-8 pb-[120px]', {
-          'max-h-screen overflow-hidden': noScroll,
-        })}
+        className={cx(
+          'mobile:px-2 mx-auto flex w-full max-w-[1152px] flex-col px-4 pt-8 pb-[120px]',
+          {
+            'desk:max-h-screen desk:overflow-hidden': noScroll,
+          },
+        )}
       >
         <header className="mb-8 flex min-h-12 flex-row items-center">
           <Link to="/" className="cursor-pointer">
@@ -32,7 +35,6 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Link>
           </Button>
         </header>
-
         {children}
       </div>
     </div>
