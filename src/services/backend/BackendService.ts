@@ -3,6 +3,7 @@
 import { CoverLetter } from '@/modules/coverLetter/model'
 
 import LocalDB from './localDB'
+import axios from 'axios'
 
 interface CoverLetterData {
   title: string
@@ -18,7 +19,9 @@ const emulateNetworkDelay = (delay = 1000) => {
   })
 }
 
-const generateMessage = (data: CoverLetterData) => {
+const generateMessage = async (data: CoverLetterData) => {
+  await emulateNetworkDelay(3000)
+
   return `Dear ${data.company} Team,
 
 I am writing to express my interest in the ${data.jobTitle} position.
@@ -32,8 +35,23 @@ I am confident that my skills and enthusiasm would translate into valuable contr
 Thank you for considering my application. I eagerly await the opportunity to discuss my qualifications further.`
 }
 
-const buildCoverLetter = (data: CoverLetterData) => {
-  const message = generateMessage(data)
+const generateMessageViaAI = async (data: CoverLetterData) => {
+  const response = await axios.get<{ coverLetter: string }>('/api/generate-cover-letter', {
+    params: {
+      jobTitle: data.jobTitle,
+      company: data.company,
+      imGoodAt: data.imGoodAt,
+      details: data.details,
+    },
+  })
+
+  return response.data.coverLetter
+}
+
+const buildCoverLetter = async (data: CoverLetterData) => {
+  const isUseAIGeneration = !(localStorage?.getItem?.('use_ai') === 'false')
+
+  const message = isUseAIGeneration ? await generateMessageViaAI(data) : await generateMessage(data)
 
   const coverLetter: CoverLetter = {
     id: crypto.randomUUID(),
@@ -50,9 +68,7 @@ const buildCoverLetter = (data: CoverLetterData) => {
 }
 
 const createCoverLetter = async (data: CoverLetterData) => {
-  await emulateNetworkDelay(3000)
-
-  const coverLetter = buildCoverLetter(data)
+  const coverLetter = await buildCoverLetter(data)
 
   await LocalDB.createCoverLetter(coverLetter).then(() => coverLetter)
 
