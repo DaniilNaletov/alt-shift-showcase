@@ -8,6 +8,8 @@ const useCoverLetters = () => {
     queryFn: async () => {
       return coverLetterApi.getAllCoverLetters()
     },
+    select: (data) =>
+      data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()),
   })
 }
 
