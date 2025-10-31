@@ -17,7 +17,7 @@ const inputVariants = cva(
         false: '',
       },
       variant: {
-        default: 'bg-transparent rounded-[8px] border min-h-[60px] text-sm',
+        default: 'bg-transparent rounded-[8px] border min-h-[60px] text-sm placeholder:text-gray-5',
       },
     },
     compoundVariants: [
@@ -26,7 +26,7 @@ const inputVariants = cva(
         isDisabled: false,
         isError: false,
         className:
-          'border-default text-default focus:border-green-3 focus:ring-4 focus:ring-green-1 placeholder:text-gray-5',
+          'border-default text-default focus:border-green-3 focus:ring-4 focus:ring-green-1',
       },
       {
         variant: ['default'],

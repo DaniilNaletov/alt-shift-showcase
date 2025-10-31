@@ -15,7 +15,7 @@ const inputVariants = cva('whitespace-nowrap transition-all outline-hidden w-ful
       false: '',
     },
     variant: {
-      default: 'bg-transparent rounded-[6px] border',
+      default: 'bg-transparent rounded-[6px] border placeholder:text-gray-5',
     },
     size: {
       default: 'min-h-[40px] px-3 text-sm',
@@ -26,8 +26,7 @@ const inputVariants = cva('whitespace-nowrap transition-all outline-hidden w-ful
       variant: ['default'],
       isDisabled: false,
       isError: false,
-      className:
-        'border-default text-default focus:border-green-3 focus:ring-4 focus:ring-green-1 placeholder:text-gray-5',
+      className: 'border-default text-default focus:border-green-3 focus:ring-4 focus:ring-green-1',
     },
     {
       variant: ['default'],
