@@ -27,8 +27,8 @@ const CreateCoverLetterForm: React.FC<{
     watch,
     formState: { errors, isValid, isSubmitting },
   } = useForm<Inputs>({
-    mode: 'onChange',
-    reValidateMode: 'onChange',
+    // mode: 'onChange',
+    // reValidateMode: 'onChange',
   })
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -39,7 +39,7 @@ const CreateCoverLetterForm: React.FC<{
   const detailsLength = details.length
   const isDetailsError = detailsLength > MAX_DETAILS_LENGTH
 
-  const isFormValid = isValid && !isDetailsError
+  // const isFormValid = isValid && !isDetailsError
 
   return (
     <form className={cx('flex flex-col gap-4', className)} onSubmit={handleSubmit(onSubmit)}>
@@ -96,7 +96,7 @@ const CreateCoverLetterForm: React.FC<{
           id="details"
           placeholder="Describe why you are a great fit or paste your bio"
           className="min-h-[80px] grow"
-          {...register('details')}
+          {...register('details', { validate: () => !isDetailsError })}
           isError={isDetailsError || !!errors.details}
           shakeOnError
         />
@@ -111,7 +111,7 @@ const CreateCoverLetterForm: React.FC<{
           variant="outlined"
           type="submit"
           size="large"
-          isDisabled={!isFormValid}
+          // isDisabled={!isFormValid}
           isLoading={isSubmitting}
         >
           <IconRetry />
@@ -123,7 +123,7 @@ const CreateCoverLetterForm: React.FC<{
           variant="solid"
           type="submit"
           size="large"
-          isDisabled={!isFormValid && !isSubmitting}
+          // isDisabled={!isFormValid && !isSubmitting}
           isLoading={isSubmitting}
         >
           Generate Now

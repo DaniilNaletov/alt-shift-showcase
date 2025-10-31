@@ -25,7 +25,7 @@ const CoverLetterPreview: React.FC<{
         className,
       )}
     >
-      <p className="text-secondary min-h-[200px] grow overflow-auto px-6 pt-6 pb-[80px] whitespace-pre-wrap">
+      <p className="text-secondary min-h-[200px] grow overflow-auto px-6 pt-6 pb-[80px] break-words whitespace-pre-wrap">
         {message || placeholder}
       </p>
 
