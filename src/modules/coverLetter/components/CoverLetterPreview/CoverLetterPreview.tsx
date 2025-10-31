@@ -4,7 +4,7 @@ import cx from 'clsx'
 
 import copyToClipboard from '@/shared/helpers/copyToClipboard'
 
-import { ReactComponent as IllustrationBall } from './IllustrationBall.svg'
+import BallLoader from '../BallLoader/BallLoader'
 
 const CoverLetterPreview: React.FC<{
   message?: string
@@ -39,24 +39,25 @@ const CoverLetterPreview: React.FC<{
           { 'pointer-events-none': !isLoading },
         )}
       >
-        <IllustrationBall className="animate-pulse" />
+        <BallLoader />
       </div>
 
       {message ? (
-        <div className="bg-surface-secondary absolute right-0 bottom-0 left-0 flex flex-row justify-end p-6 pt-4">
-          <Button
-            variant="ghost"
-            className="hover:text-primary"
-            isDisabled={!message}
-            onClick={handleCopy}
-          >
-            Copy to clipboard
-            <IconCopySm />
-          </Button>
-        </div>
+        <>
+          <div className="bg-surface-secondary absolute right-0 bottom-0 left-0 flex flex-row justify-end p-6 pt-4">
+            <Button
+              variant="ghost"
+              className="hover:text-primary"
+              isDisabled={!message}
+              onClick={handleCopy}
+            >
+              Copy to clipboard
+              <IconCopySm />
+            </Button>
+          </div>
+          <div className="from-surface-secondary to-surface-secondary/0 absolute right-0 bottom-16 left-0 h-10 bg-gradient-to-t" />
+        </>
       ) : null}
-
-      <div className="from-surface-secondary to-surface-secondary/0 absolute right-0 bottom-16 left-0 h-10 bg-gradient-to-t" />
     </div>
   )
 }

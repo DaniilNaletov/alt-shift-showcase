@@ -12,9 +12,9 @@ interface CoverLetterData {
   details: string
 }
 
-const emulateNetworkDelay = () => {
+const emulateNetworkDelay = (delay = 1000) => {
   return new Promise((resolve) => {
-    setTimeout(resolve, 1000)
+    setTimeout(resolve, delay)
   })
 }
 
@@ -50,7 +50,7 @@ const buildCoverLetter = (data: CoverLetterData) => {
 }
 
 const createCoverLetter = async (data: CoverLetterData) => {
-  await emulateNetworkDelay()
+  await emulateNetworkDelay(3000)
 
   const coverLetter = buildCoverLetter(data)
 
