@@ -1,3 +1,4 @@
+import { NotificationsRoot } from '@altui'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 
 import CreateCoverLetterPage from '@/pages/create-cover-letter/CreateCoverLetterPage'
@@ -10,9 +11,12 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <AppLayout>
-        <Outlet />
-      </AppLayout>
+      <>
+        <NotificationsRoot />
+        <AppLayout>
+          <Outlet />
+        </AppLayout>
+      </>
     ),
     children: [
       {

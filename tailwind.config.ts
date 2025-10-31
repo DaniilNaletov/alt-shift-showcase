@@ -91,6 +91,8 @@ const config: Config = {
           base: 'hsl(var(--color-white) / <alpha-value>)',
           primary: 'hsl(var(--color-green-1) / <alpha-value>)',
           secondary: 'hsl(var(--color-gray-1) / <alpha-value>)',
+          danger: 'hsl(var(--color-red-3) / <alpha-value>)',
+          success: 'hsl(var(--color-green-4) / <alpha-value>)',
         },
       },
 
