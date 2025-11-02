@@ -7,6 +7,7 @@
 Архитектура приложения основана на **строгом разделении по слоям и модулям** с чётко определёнными потоками зависимостей.
 
 Demo preview: https://alt-shift-showcase-production.up.railway.app/
+
 UI-kit demo: https://alt-shift-showcase-production.up.railway.app/test-ui
 
 ---
