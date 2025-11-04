@@ -96,7 +96,9 @@ const CreateCoverLetterForm: React.FC<{
           id="details"
           placeholder="Describe why you are a great fit or paste your bio"
           className="min-h-[80px] grow"
-          {...register('details', { validate: () => !isDetailsError })}
+          {...register('details', {
+            maxLength: { value: MAX_DETAILS_LENGTH, message: 'Max length exceeded' },
+          })}
           isError={isDetailsError || !!errors.details}
           shakeOnError
         />
